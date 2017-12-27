@@ -13,7 +13,6 @@ if [ $VERSION != "16.04.3 LTS (Xenial Xerus)" ]; then
 fi
 
 LOGGED_USER=`who | awk '{ print $1 }'`
-usermod -aG docker $LOGGED_USER
 
 echo 'Adding and updating repositories...'
 add-apt-repository ppa:neovim-ppa/stable -y >/dev/null 2>&1
@@ -25,6 +24,7 @@ apt install -y -qq >/dev/null git curl automake autoconf libreadline-dev libncur
 
 echo 'Installing Docker...'
 sh ./install-docker-tools.sh >/dev/null
+usermod -aG docker $LOGGED_USER
 
 echo 'Installing fish'
 apt -qq -y install fish >/dev/null
