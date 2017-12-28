@@ -31,6 +31,6 @@ echo 'Installing postgres 10.1'
 asdf plugin-add postgres 2>/dev/null
 asdf install postgres 10.1 >/dev/null 2>&1
 asdf global postgres 10.1
-pg_ctl start
-create user postgres
+pg_ctl start >/dev/null 2>&1
+createuser postgres
 psql -V
