@@ -22,7 +22,7 @@ ruby -v
 
 echo 'Installing nodejs 9.3.0'
 asdf plugin-add nodejs 2>/dev/null
-sudo bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring >/dev/null 2>&1
+bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring >/dev/null 2>&1
 asdf install nodejs 9.3.0 >/dev/null 2>&1
 asdf global nodejs 9.3.0
 node -v
