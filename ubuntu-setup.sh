@@ -20,7 +20,7 @@ apt-add-repository ppa:fish-shell/release-2 -y >/dev/null 2>&1
 apt-get update -qq >/dev/null
 
 echo 'Installing compiling tools...'
-apt-get install -y -qq >/dev/null git curl automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev build-essential libevent-dev
+apt-get install -y -qq git curl automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev build-essential libevent-dev >/dev/null
 
 echo 'Installing Docker...'
 sh ./install-docker-tools.sh >/dev/null

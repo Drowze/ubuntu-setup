@@ -8,9 +8,9 @@ fi
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.4.1 2>/dev/null
 echo '\n. ~/.asdf/asdf.sh' >> $HOME/.bashrc
 echo '\n. ~/.asdf/completions/asdf.bash' >> $HOME/.bashrc
-echo 'source ~/.asdf/asdf.fish' >> $HOME/.config/fish/config.fish
 mkdir -p $HOME/.config/fish/completions
 cp $HOME/.asdf/completions/asdf.fish $HOME/.config/fish/completions
+echo 'source ~/.asdf/asdf.fish' >> $HOME/.config/fish/config.fish
 export PATH="$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
 asdf --version
 
