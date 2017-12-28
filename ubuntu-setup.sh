@@ -25,6 +25,9 @@ apt-get install -y -qq >/dev/null git curl automake autoconf libreadline-dev lib
 echo 'Installing Docker...'
 sh ./install-docker-tools.sh >/dev/null
 usermod -aG docker $LOGGED_USER
+docker version | grep Version
+docker-machine version
+docker-compose version | head -n 1
 
 echo 'Installing fish'
 apt-get -qq -y install fish >/dev/null
@@ -43,7 +46,7 @@ tmux -V
 
 echo 'Installing neovim'
 apt-get -qq -y install neovim >/dev/null
-nvim | head -n 1
+nvim -v | head -n 1
 
 echo 'Installing asdf'
 su -c 'sh ./install-asdf.sh' $LOGGED_USER
