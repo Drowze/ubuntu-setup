@@ -7,7 +7,7 @@ fi
 
 . /etc/os-release
 
-if [ $VERSION != "16.04.3 LTS (Xenial Xerus)" ]; then
+if [[ $VERSION != "16.04.3 LTS (Xenial Xerus)" ]]; then
   echo 'This script only has support for Ubuntu 16 LTS' >&2
   exit 1
 fi
