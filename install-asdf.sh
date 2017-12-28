@@ -5,13 +5,12 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-echo 'Installing asdf'
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.4.1 2>/dev/null
-echo '\n. $HOME/.asdf/asdf.sh' >> $HOME/.bashrc
-echo '\n. $HOME/.asdf/completions/asdf.bash' >> $HOME/.bashrc
+echo '\n. ~/.asdf/asdf.sh' >> $HOME/.bashrc
+echo '\n. ~/.asdf/completions/asdf.bash' >> $HOME/.bashrc
 echo 'source ~/.asdf/asdf.fish' >> $HOME/.config/fish/config.fish
-mkdir -p ~/.config/fish/completions
-cp ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+mkdir -p $HOME/.config/fish/completions
+cp $HOME/.asdf/completions/asdf.fish $HOME/.config/fish/completions
 export PATH="$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
 
 echo 'Installing ruby'
