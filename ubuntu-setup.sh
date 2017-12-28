@@ -28,6 +28,7 @@ usermod -aG docker $LOGGED_USER
 
 echo 'Installing fish'
 apt-get -qq -y install fish >/dev/null
+fish -v
 
 echo 'Installing tmux 2.6'
 git clone -b 2.6 --single-branch https://github.com/tmux/tmux.git 2>/dev/null
@@ -38,9 +39,11 @@ make >/dev/null 2>&1
 make install >/dev/null 2>&1
 cd ..
 rm -rf tmux
+tmux -V
 
 echo 'Installing neovim'
 apt-get -qq -y install neovim >/dev/null
+nvim | head -n 1
 
 echo 'Installing asdf'
 su -c 'sh ./install-asdf.sh' $LOGGED_USER
