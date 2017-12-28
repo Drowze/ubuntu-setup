@@ -17,17 +17,17 @@ LOGGED_USER=`who | awk '{ print $1 }'`
 echo 'Adding and updating repositories...'
 add-apt-repository ppa:neovim-ppa/stable -y >/dev/null 2>&1
 apt-add-repository ppa:fish-shell/release-2 -y >/dev/null 2>&1
-apt update -qq >/dev/null
+apt-get update -qq >/dev/null
 
 echo 'Installing compiling tools...'
-apt install -y -qq >/dev/null git curl automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev build-essential libevent-dev
+apt-get install -y -qq >/dev/null git curl automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev build-essential libevent-dev
 
 echo 'Installing Docker...'
 sh ./install-docker-tools.sh >/dev/null
 usermod -aG docker $LOGGED_USER
 
 echo 'Installing fish'
-apt -qq -y install fish >/dev/null
+apt-get -qq -y install fish >/dev/null
 
 echo 'Installing tmux 2.6'
 git clone -b 2.6 --single-branch https://github.com/tmux/tmux.git 2>/dev/null
@@ -40,7 +40,7 @@ cd ..
 rm -rf tmux
 
 echo 'Installing neovim'
-apt -qq -y install neovim >/dev/null
+apt-get -qq -y install neovim >/dev/null
 
 echo 'Installing asdf'
 su -c 'sh ./install-asdf.sh' $LOGGED_USER
