@@ -16,7 +16,7 @@ LOGGED_USER=`who | awk '{ print $1 }'`
 
 echo 'Adding and updating repositories...'
 add-apt-repository ppa:neovim-ppa/stable -y >/dev/null 2>&1
-apt-add-repository ppa:fish-shell/release-2 -y >/dev/null 2>&1
+add-apt-repository ppa:fish-shell/release-2 -y >/dev/null 2>&1
 apt-get update -qq >/dev/null
 
 echo 'Installing compiling tools...'
@@ -47,6 +47,10 @@ tmux -V
 echo 'Installing neovim'
 apt-get -qq -y install neovim >/dev/null
 nvim -v | head -n 1
+
+echo 'Installing weechat'
+sh ./install-weechat.sh >/dev/null
+weechat -v
 
 echo 'Installing asdf'
 su -c 'sh ./install-asdf.sh' $LOGGED_USER
