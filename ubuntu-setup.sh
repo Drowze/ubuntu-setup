@@ -33,6 +33,9 @@ echo 'Installing fish'
 apt-get -qq -y install fish >/dev/null
 fish -v
 
+echo 'Applying Dracula theme to Gnome Terminal first profile'
+su -c 'sh apply-gnome-terminal-theme.sh' $LOGGED_USER
+
 echo 'Installing tmux 2.6'
 git clone -b 2.6 --single-branch https://github.com/tmux/tmux.git 2>/dev/null
 cd tmux
